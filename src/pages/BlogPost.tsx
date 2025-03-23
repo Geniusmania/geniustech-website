@@ -1,10 +1,12 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { ArrowLeft, Calendar, Clock, User, Tag } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Button } from "../components/ui/button";
+import { toast } from "../hooks/use-toast";
 
 // This would typically come from a CMS or API
 const getBlogPost = (slug: string) => {
@@ -80,6 +82,7 @@ const getBlogPost = (slug: string) => {
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = getBlogPost(slug || "");
+  const [copied, setCopied] = useState(false);
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -105,6 +108,42 @@ const BlogPost = () => {
       </>
     );
   }
+  
+  const handleShare = (platform: string) => {
+    const url = window.location.href;
+    let shareUrl = '';
+    
+    switch (platform) {
+      case 'twitter':
+        shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(url)}`;
+        break;
+      case 'linkedin':
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+        break;
+      case 'copy':
+        navigator.clipboard.writeText(url)
+          .then(() => {
+            setCopied(true);
+            toast({
+              title: "Link Copied",
+              description: "The link has been copied to your clipboard.",
+            });
+            setTimeout(() => setCopied(false), 3000);
+          })
+          .catch(err => {
+            toast({
+              title: "Copy Failed",
+              description: "Failed to copy the link. Please try again.",
+              variant: "destructive",
+            });
+          });
+        return;
+    }
+    
+    if (shareUrl) {
+      window.open(shareUrl, '_blank', 'noopener,noreferrer');
+    }
+  };
   
   return (
     <>
@@ -159,15 +198,15 @@ const BlogPost = () => {
             <div className="mt-12 pt-8 border-t border-border">
               <h3 className="text-xl font-semibold mb-4">Share this article</h3>
               <div className="flex gap-4">
-                <button className="button-secondary px-4 py-2 text-sm">
+                <Button variant="secondary" onClick={() => handleShare('twitter')}>
                   Share on Twitter
-                </button>
-                <button className="button-secondary px-4 py-2 text-sm">
+                </Button>
+                <Button variant="secondary" onClick={() => handleShare('linkedin')}>
                   Share on LinkedIn
-                </button>
-                <button className="button-secondary px-4 py-2 text-sm">
-                  Copy Link
-                </button>
+                </Button>
+                <Button variant="secondary" onClick={() => handleShare('copy')}>
+                  {copied ? "Copied!" : "Copy Link"}
+                </Button>
               </div>
             </div>
           </div>

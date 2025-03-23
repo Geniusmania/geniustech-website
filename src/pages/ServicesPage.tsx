@@ -118,8 +118,8 @@ const ServicesPage = () => {
             </div>
           </section>
           
-          {/* All Services */}
-          <Services limit={0} showFilters={false} />
+          {/* All Services - Fixed by removing the showFilters prop */}
+          <Services limit={0} />
           
           {/* Our Process */}
           <section className="bg-secondary py-24 mt-16">

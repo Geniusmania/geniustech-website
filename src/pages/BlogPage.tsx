@@ -5,10 +5,13 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Calendar, User, Clock, Search, Tag, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "../components/ui/button";
+import { toast } from "../hooks/use-toast";
 
 const blogPosts = [
   {
     id: 1,
+    slug: "web-development-trends-2023",
     title: "The Future of Web Development: Trends to Watch in 2023",
     excerpt: "Explore the emerging technologies and methodologies that are reshaping the web development landscape this year.",
     image: "https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
@@ -20,6 +23,7 @@ const blogPosts = [
   },
   {
     id: 2,
+    slug: "mobile-app-design-principles",
     title: "Building Scalable Mobile Applications with React Native",
     excerpt: "Learn the best practices for developing cross-platform mobile apps that can grow with your user base.",
     image: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
@@ -80,6 +84,10 @@ const categories = ["All", "Web Development", "Mobile Development", "Backend Dev
 const BlogPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [email, setEmail] = useState("");
+  
+  const postsPerPage = 6;
   
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -89,6 +97,33 @@ const BlogPage = () => {
     
     return matchesSearch && matchesCategory;
   });
+  
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+  
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (email) {
+      toast({
+        title: "Subscription Successful",
+        description: "Thank you for subscribing to our newsletter!",
+      });
+      setEmail("");
+    } else {
+      toast({
+        title: "Error",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+    }
+  };
   
   return (
     <>
@@ -141,7 +176,7 @@ const BlogPage = () => {
             
             {/* Blog Posts */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post, index) => (
+              {currentPosts.map((post, index) => (
                 <article 
                   key={post.id}
                   className="glass-card overflow-hidden flex flex-col h-full animate-fade-in animate-once"
@@ -177,7 +212,7 @@ const BlogPage = () => {
                     </div>
                     
                     <h2 className="text-xl font-bold mb-3 line-clamp-2">
-                      <Link to={`/blog/${post.id}`} className="hover:text-primary transition-colors">
+                      <Link to={`/blog/${post.slug}`} className="hover:text-primary transition-colors">
                         {post.title}
                       </Link>
                     </h2>
@@ -199,7 +234,7 @@ const BlogPage = () => {
                     </div>
                     
                     <Link 
-                      to={`/blog/${post.id}`} 
+                      to={`/blog/${post.slug}`} 
                       className="mt-auto inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                     >
                       Read More
@@ -222,15 +257,15 @@ const BlogPage = () => {
                 <p className="text-foreground/70 mb-6">
                   We couldn't find any posts matching your search criteria.
                 </p>
-                <button 
+                <Button 
                   onClick={() => {
                     setSearchTerm("");
                     setActiveCategory("All");
                   }} 
-                  className="button-secondary"
+                  variant="secondary"
                 >
                   Clear Filters
-                </button>
+                </Button>
               </div>
             )}
             
@@ -238,24 +273,34 @@ const BlogPage = () => {
             {filteredPosts.length > 0 && (
               <div className="flex justify-center mt-16 animate-fade-in animate-once animate-delay-500">
                 <nav className="flex items-center space-x-2">
-                  <button className="w-10 h-10 rounded-lg bg-secondary text-foreground flex items-center justify-center hover:bg-secondary/80 transition-colors">
+                  <Button
+                    variant="secondary"
+                    size="icon"
+                    onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                  >
                     &lt;
-                  </button>
-                  {[1, 2, 3].map((page) => (
-                    <button 
+                  </Button>
+                  
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                    <Button 
                       key={page}
-                      className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
-                        page === 1
-                          ? "bg-primary text-white"
-                          : "bg-secondary text-foreground hover:bg-secondary/80"
-                      }`}
+                      variant={page === currentPage ? "default" : "secondary"}
+                      size="icon"
+                      onClick={() => handlePageChange(page)}
                     >
                       {page}
-                    </button>
+                    </Button>
                   ))}
-                  <button className="w-10 h-10 rounded-lg bg-secondary text-foreground flex items-center justify-center hover:bg-secondary/80 transition-colors">
+                  
+                  <Button
+                    variant="secondary"
+                    size="icon"
+                    onClick={() => currentPage < totalPages && handlePageChange(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                  >
                     &gt;
-                  </button>
+                  </Button>
                 </nav>
               </div>
             )}
@@ -270,16 +315,21 @@ const BlogPage = () => {
                   Stay updated with our latest articles, tutorials, and industry insights.
                 </p>
                 
-                <form className="max-w-md mx-auto flex">
+                <form className="max-w-md mx-auto flex" onSubmit={handleSubscribe}>
                   <input
                     type="email"
                     placeholder="Your email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="flex-1 px-4 py-3 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
                     required
                   />
-                  <button type="submit" className="bg-primary text-white px-6 py-3 rounded-r-lg font-medium hover:bg-primary/90 transition-colors">
+                  <Button 
+                    type="submit" 
+                    className="px-6 py-3 rounded-r-lg"
+                  >
                     Subscribe
-                  </button>
+                  </Button>
                 </form>
                 
                 <p className="text-xs text-foreground/60 mt-4">

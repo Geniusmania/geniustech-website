@@ -1,11 +1,15 @@
 
-import { useLocation, Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { ArrowLeft, Home, Search } from "lucide-react";
 import { Helmet } from "react-helmet";
+import { Button } from "../components/ui/button";
+import { toast } from "../hooks/use-toast";
 
 const NotFound = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     console.error(
@@ -13,6 +17,32 @@ const NotFound = () => {
       location.pathname
     );
   }, [location.pathname]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      toast({
+        title: "Search Initiated",
+        description: `Searching for "${searchQuery}"...`,
+      });
+      
+      // In a real application, this would redirect to search results
+      // For now, we'll redirect to the home page after a short delay
+      setTimeout(() => {
+        navigate("/");
+        toast({
+          title: "Search Completed",
+          description: `Redirected to home page with search term: "${searchQuery}"`,
+        });
+      }, 1500);
+    } else {
+      toast({
+        title: "Search Error",
+        description: "Please enter a search term",
+        variant: "destructive",
+      });
+    }
+  };
 
   return (
     <>
@@ -43,7 +73,7 @@ const NotFound = () => {
             Let's get you back on track.
           </p>
           
-          <div className="mb-8 max-w-md mx-auto">
+          <form onSubmit={handleSearch} className="mb-8 max-w-md mx-auto">
             <div className="relative">
               <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
                 <Search className="h-5 w-5 text-foreground/40" />
@@ -51,27 +81,30 @@ const NotFound = () => {
               <input
                 type="text"
                 placeholder="Search for what you're looking for..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-10 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
               />
             </div>
-          </div>
+          </form>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link 
-              to="/" 
-              className="button-primary inline-flex items-center justify-center"
+            <Button 
+              onClick={() => navigate("/")}
+              className="inline-flex items-center justify-center"
             >
               <Home className="mr-2 h-4 w-4" />
               Back to Home
-            </Link>
+            </Button>
             
-            <button 
+            <Button 
               onClick={() => window.history.back()} 
-              className="button-secondary inline-flex items-center justify-center"
+              variant="secondary"
+              className="inline-flex items-center justify-center"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Go Back
-            </button>
+            </Button>
           </div>
           
           <div className="mt-12 text-sm text-foreground/60">
