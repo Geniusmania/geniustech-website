@@ -115,9 +115,9 @@ const ServicesPage = () => {
           <Services limit={0} />
           
           {/* Our Process */}
-          <section className="bg-secondary py-24 mt-16">
+          <section className="bg-secondary py-10 mt-16">
             <div className="container mx-auto px-6">
-              <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in animate-once">
+              <div className="text-center max-w-3xl mx-auto mb-0 animate-fade-in animate-once">
                 <h2 className="mb-4 heading-gradient">Our Process</h2>
                 <p className="text-lg text-foreground/80">
                   We follow a systematic approach to ensure the successful delivery of every project.
@@ -130,7 +130,7 @@ const ServicesPage = () => {
                 {processSteps.map((step, index) => (
                   <div 
                     key={index}
-                    className={`flex flex-col md:flex-row items-center gap-8 mb-16 relative animate-fade-in animate-once ${
+                    className={`flex flex-col md:flex-row items-center gap-12 mb-0 relative animate-fade-in animate-once ${
                       index % 2 === 0 ? 'md:flex-row-reverse' : ''
                     }`}
                     style={{ animationDelay: `${index * 100}ms` }}
