@@ -48,7 +48,7 @@ const packages = [
   {
     name: "Starter",
     description: "Perfect for small businesses just getting started with their digital presence.",
-    price: "$1,999",
+    
     features: [
       "Responsive Website Design",
       "Up to 5 Pages",
@@ -63,7 +63,7 @@ const packages = [
   {
     name: "Professional",
     description: "Comprehensive solution for growing businesses with more complex requirements.",
-    price: "$4,999",
+    
     features: [
       "Advanced Website with CMS",
       "Up to 15 Pages",
@@ -80,7 +80,7 @@ const packages = [
   {
     name: "Enterprise",
     description: "Tailored solutions for large organizations with specific needs and integrations.",
-    price: "Custom",
+    
     features: [
       "Custom Web Application",
       "Unlimited Pages",
@@ -109,14 +109,7 @@ const ServicesPage = () => {
         <Navbar />
         
         <main className="pt-32">
-          <section className="container mx-auto px-6 pb-16">
-            <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in animate-once">
-              <h1 className="mb-4 heading-gradient">Our Services</h1>
-              <p className="text-lg text-foreground/80">
-                We offer a comprehensive range of technology solutions designed to help businesses thrive in the digital landscape.
-              </p>
-            </div>
-          </section>
+          
           
           {/* All Services - Fixed by removing the showFilters prop */}
           <Services limit={0} />
@@ -196,10 +189,7 @@ const ServicesPage = () => {
                     
                     <h3 className="text-xl font-bold mb-2">{pkg.name}</h3>
                     <p className="text-foreground/70 text-sm mb-4">{pkg.description}</p>
-                    <div className="mb-6">
-                      <span className="text-3xl font-bold">{pkg.price}</span>
-                      {pkg.price !== "Custom" && <span className="text-foreground/70 ml-1">/ project</span>}
-                    </div>
+                  
                     
                     <ul className="space-y-3 mb-8">
                       {pkg.features.map((feature, idx) => (
