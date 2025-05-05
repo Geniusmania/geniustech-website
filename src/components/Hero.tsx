@@ -19,7 +19,7 @@ const Hero = () => {
             <p className="text-lg text-foreground/80 max-w-xl animate-fade-in animate-once animate-delay-300">
               We build cutting-edge digital solutions to transform your business. From web development to IT consulting, we turn your vision into reality.
             </p>
-            
+{/*             
             <div className="flex flex-wrap gap-4 pt-2 animate-fade-in animate-once animate-delay-400">
               <Link to="/contact" className="button-primary">
                 <span>Get Started</span>
@@ -28,16 +28,16 @@ const Hero = () => {
               <Link to="/services" className="button-secondary">
                 Our Services
               </Link>
-            </div>
+            </div> */}
             
             <div className="flex items-center space-x-6 pt-4 animate-fade-in animate-once animate-delay-500">
               <div className="flex -space-x-2">
                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-xs text-primary font-medium">99%</div>
                 <div className="w-10 h-10 rounded-full bg-primary/30 flex items-center justify-center text-xs text-primary-foreground font-medium">24/7</div>
-                <div className="w-10 h-10 rounded-full bg-primary/40 flex items-center justify-center text-xs text-primary-foreground font-medium">+5y</div>
+                {/* <div className="w-10 h-10 rounded-full bg-primary/40 flex items-center justify-center text-xs text-primary-foreground font-medium">+5y</div> */}
               </div>
               <p className="text-sm text-muted-foreground">
-                Client satisfaction with 24/7 support & 5+ years experience
+                Client satisfaction with 24/7 support
               </p>
             </div>
           </div>

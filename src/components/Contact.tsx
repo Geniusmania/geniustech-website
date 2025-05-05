@@ -2,26 +2,22 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "../supabaseClient";
 
 const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
+    details: ["+233 596 605-771", "+233 201 515-815"],
     delay: 100
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["contact@geniustech.com", "support@geniustech.com"],
+    details: ["geniustechsolutions01@gmail.com"],
     delay: 200
   },
-  {
-    icon: MapPin,
-    title: "Office",
-    details: ["123 Tech Boulevard", "San Francisco, CA 94105"],
-    delay: 300
-  }
+  
 ];
 
 const Contact = ({ isContactPage = false }) => {
@@ -31,34 +27,48 @@ const Contact = ({ isContactPage = false }) => {
     subject: "",
     message: ""
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-  
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      toast.success("Message sent successfully!", {
-        description: "We'll get back to you as soon as possible.",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: ""
-      });
-      setIsSubmitting(false);
-    }, 1500);
-  };
+const [isSubmitting, setIsSubmitting] = useState(false);
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const { name, value } = e.target;
+  setFormData(prev => ({
+    ...prev,
+    [name]: value
+  }));
+};
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  const { name, email, subject, message } = formData;
+
+  const { error } = await supabase.from("contacts").insert([
+    { name, email, subject, message }
+  ]);
+
+  if (error) {
+    toast.error("Failed to send message", {
+      description: "Please try again later.",
+    });
+  } else {
+    toast.success("Message sent successfully!", {
+      description: "We'll get back to you as soon as possible.",
+    });
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: ""
+    });
+  }
+
+  setIsSubmitting(false);
+};
+
   
   return (
-    <section id="contact" className={`${isContactPage ? 'pt-32' : 'section-container'}`}>
+    <section id="contact" className={`${isContactPage ? 'section-container' : 'section-container'}`}>
       {!isContactPage && (
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in animate-once">
           <h2 className="mb-4 heading-gradient">Get in Touch</h2>
@@ -192,27 +202,7 @@ const Contact = ({ isContactPage = false }) => {
                 ))}
               </div>
               
-              <div className="pt-4 animate-fade-in animate-once animate-delay-400">
-                <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
-                <div className="flex space-x-4">
-                  {["twitter", "facebook", "linkedin", "instagram"].map((platform) => (
-                    <a
-                      key={platform}
-                      href={`https://${platform}.com`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center hover:bg-primary hover:text-white transition-colors duration-200"
-                      aria-label={`Follow on ${platform}`}
-                    >
-                      <img 
-                        src={`/placeholder.svg`} 
-                        alt={platform}
-                        className="w-5 h-5" 
-                      />
-                    </a>
-                  ))}
-                </div>
-              </div>
+             
             </div>
             
             {/* Background Elements */}
@@ -222,22 +212,7 @@ const Contact = ({ isContactPage = false }) => {
         </div>
       </div>
       
-      {isContactPage && (
-        <div className="mt-24 animate-fade-in animate-once">
-          <div className="h-[400px] rounded-xl overflow-hidden shadow-lg">
-            <iframe
-              title="GeniusTech Solutions Office Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50470.09854007152!2d-122.44277246722228!3d37.75777579918133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1684942292795!5m2!1sen!2sus"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </div>
-      )}
+      
     </section>
   );
 };

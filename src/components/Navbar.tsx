@@ -7,8 +7,6 @@ const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Services", path: "/services" },
-  { name: "Portfolio", path: "/portfolio" },
-  { name: "Blog", path: "/blog" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -66,12 +64,7 @@ const Navbar = () => {
             </Link>
           ))}
           
-          <Link 
-            to="/contact" 
-            className="ml-4 button-primary"
-          >
-            Get in Touch
-          </Link>
+          
         </div>
         
         {/* Mobile Menu Button */}
@@ -108,12 +101,7 @@ const Navbar = () => {
             </Link>
           ))}
           
-          <Link 
-            to="/contact" 
-            className="mt-8 button-primary text-center"
-          >
-            Get in Touch
-          </Link>
+          
         </div>
       </div>
     </nav>

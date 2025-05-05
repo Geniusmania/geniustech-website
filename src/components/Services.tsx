@@ -85,13 +85,13 @@ const Services = ({ limit = 6 }) => {
               )}
             </div>
             
-            <Link 
+            {/* <Link 
               to="/services" 
               className="inline-flex items-center mt-4 pt-4 border-t border-border text-primary hover:text-primary/80 font-medium transition-colors"
             >
               Learn more
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            </Link> */}
           </div>
         ))}
       </div>

@@ -28,32 +28,7 @@ const values = [
   }
 ];
 
-const team = [
-  {
-    name: "David Johnson",
-    position: "Founder & CEO",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80",
-    description: "With over 15 years of experience in technology and business leadership, David founded GeniusTech Solutions with a vision to help businesses leverage technology for growth and innovation."
-  },
-  {
-    name: "Sarah Miller",
-    position: "CTO",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1288&q=80",
-    description: "A brilliant technologist with expertise in multiple programming languages and frameworks, Sarah leads our technical strategy and ensures the delivery of high-quality solutions."
-  },
-  {
-    name: "Michael Chen",
-    position: "Lead Developer",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-    description: "Michael's exceptional coding skills and problem-solving abilities have been instrumental in developing some of our most complex and successful projects."
-  },
-  {
-    name: "Emily Rodriguez",
-    position: "UX/UI Designer",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1061&q=80",
-    description: "With a keen eye for design and a deep understanding of user experience, Emily creates intuitive and visually appealing interfaces that delight users."
-  }
-];
+
 
 const AboutPage = () => {
   return (
@@ -161,40 +136,7 @@ const AboutPage = () => {
                 ))}
               </div>
             </div>
-            
-            {/* Our Team */}
-            <div className="mt-24">
-              <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in animate-once">
-                <h2 className="mb-4 heading-gradient">Meet Our Team</h2>
-                <p className="text-lg text-foreground/80">
-                  The passionate professionals behind GeniusTech Solutions' success. 
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {team.map((member, index) => (
-                  <div 
-                    key={index}
-                    className="glass-card overflow-hidden animate-fade-in animate-once"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="aspect-[3/4] overflow-hidden">
-                      <img 
-                        src={member.image} 
-                        alt={member.name} 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    
-                    <div className="p-6">
-                      <h3 className="text-lg font-semibold mb-1">{member.name}</h3>
-                      <p className="text-primary text-sm mb-4">{member.position}</p>
-                      <p className="text-sm text-foreground/70">{member.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+           
           </section>
         </main>
         

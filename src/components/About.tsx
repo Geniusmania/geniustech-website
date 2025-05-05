@@ -56,7 +56,7 @@ const About = ({ isHomepage = true }) => {
               
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
               
-              <div className="absolute bottom-6 left-6 right-6">
+              {/* <div className="absolute bottom-6 left-6 right-6">
                 <div className="glass-card p-4 rounded-xl">
                   <div className="grid grid-cols-4 divide-x divide-border">
                     {statsItems.map((stat, index) => (
@@ -67,7 +67,7 @@ const About = ({ isHomepage = true }) => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
             
             <div className="absolute -bottom-8 -right-8 glass-card p-4 rounded-xl shadow-md border border-white/20 hidden md:block animate-fade-in animate-once animate-delay-300">
