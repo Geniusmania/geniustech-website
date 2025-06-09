@@ -17,8 +17,8 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Helmet>
-        <title>GeniusTech Solutions | IT Freelance Agency</title>
-        <meta name="description" content="GeniusTech Solutions is a premier IT freelance agency specializing in web development, mobile apps, and IT consulting." />
+        <title>Yiedze Digital Solutions | IT Freelance Agency</title>
+        <meta name="description" content="Yiedze Digital Solutions is a premier IT freelance agency specializing in web development, mobile apps, and IT consulting." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#1e40af" />
         <link rel="apple-touch-icon" href="/favicon.ico" />

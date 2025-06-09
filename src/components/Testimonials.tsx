@@ -8,7 +8,7 @@ const testimonials = [
     name: "Sarah Johnson",
     position: "CEO, RetailTech Inc.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80",
-    quote: "GeniusTech Solutions transformed our digital presence with a stunning e-commerce platform that has significantly boosted our online sales. Their team's attention to detail and commitment to quality is exceptional.",
+    quote: "Yiedze Digital Solutions transformed our digital presence with a stunning e-commerce platform that has significantly boosted our online sales. Their team's attention to detail and commitment to quality is exceptional.",
     rating: 5
   },
   {
@@ -24,7 +24,7 @@ const testimonials = [
     name: "Jennifer Patel",
     position: "COO, Global Enterprises Ltd.",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80",
-    quote: "GeniusTech's CRM solution has revolutionized how we manage customer relationships. Their team's expertise and dedication to understanding our specific needs resulted in a system that has significantly improved our operational efficiency.",
+    quote: "Yiedze's CRM solution has revolutionized how we manage customer relationships. Their team's expertise and dedication to understanding our specific needs resulted in a system that has significantly improved our operational efficiency.",
     rating: 4
   },
   {
@@ -32,7 +32,7 @@ const testimonials = [
     name: "Robert Martinez",
     position: "Director, HomeFind Realty",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80",
-    quote: "Working with GeniusTech has been a game-changer for our real estate business. Their innovative approach and technical prowess delivered a platform that has given us a significant edge in a competitive market.",
+    quote: "Working with Yiedze Digital Solutions has been a game-changer for our real estate business. Their innovative approach and technical prowess delivered a platform that has given us a significant edge in a competitive market.",
     rating: 5
   }
 ];
@@ -54,7 +54,7 @@ const Testimonials = () => {
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in animate-once">
           <h2 className="mb-4 heading-gradient">Client Testimonials</h2>
           <p className="text-lg text-foreground/80">
-            Don't just take our word for it. Here's what our clients have to say about working with GeniusTech Solutions.
+            Don't just take our word for it. Here's what our clients have to say about working with Yiedze Digital Solutions.
           </p>
         </div>
         

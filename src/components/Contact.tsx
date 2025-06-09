@@ -8,13 +8,13 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+233 596 605-771", "+233 201 515-815"],
+    details: ["+233 265 88 72 44", "+233 242 71 91 06"],
     delay: 100
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["geniustechsolutions01@gmail.com"],
+    details: ["info@alltechinstitute.net","alltechinstitute@gmail.com"],
     delay: 200
   },
   

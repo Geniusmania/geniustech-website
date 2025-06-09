@@ -18,7 +18,7 @@ const PortfolioPage = () => {
   return (
     <>
       <Helmet>
-        <title>Our Portfolio | GeniusTech Solutions</title>
+        <title>Our Portfolio | Yiedze Digital Solutions</title>
         <meta name="description" content="Explore our portfolio of successful IT projects including web applications, mobile apps, and enterprise solutions delivered to clients across various industries." />
       </Helmet>
       

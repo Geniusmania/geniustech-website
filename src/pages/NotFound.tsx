@@ -47,7 +47,7 @@ const NotFound = () => {
   return (
     <>
       <Helmet>
-        <title>Page Not Found | GeniusTech Solutions</title>
+        <title>Page Not Found | Yiedze Digital Solutions</title>
         <meta name="description" content="The page you're looking for doesn't exist or has been moved." />
       </Helmet>
       

@@ -47,7 +47,7 @@ const Navbar = () => {
           className="text-2xl font-display font-bold flex items-center"
         >
           <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-            GeniusTech
+            YiedzeDigital
           </span>
           <span className="text-foreground ml-1">Solutions</span>
         </Link>

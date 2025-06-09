@@ -81,7 +81,7 @@ const ServicesPage = () => {
   return (
     <>
       <Helmet>
-        <title>Our Services | GeniusTech Solutions</title>
+        <title>Our Services | Yiedze Digital Solutions</title>
         <meta name="description" content="Explore our comprehensive range of IT services including web development, mobile app development, backend solutions, and IT consulting." />
       </Helmet>
       
@@ -157,7 +157,7 @@ const ServicesPage = () => {
                 <div className="lg:w-1/2" data-animate>
                   <h2 className="text-4xl font-bold mb-6 heading-gradient">Why Choose Us</h2>
                   <p className="text-lg text-foreground/80 mb-8">
-                    When you partner with GeniusTech Solutions, you're not just hiring a service provider; 
+                    When you partner with Yiedze Digital Solutions, you're not just hiring a service provider; 
                     you're collaborating with a team dedicated to your success.
                   </p>
                   

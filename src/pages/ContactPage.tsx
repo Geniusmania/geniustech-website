@@ -36,8 +36,8 @@ const ContactPage = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us | GeniusTech Solutions</title>
-        <meta name="description" content="Get in touch with GeniusTech Solutions for all your IT service needs. Contact us today to discuss your project or request a quote." />
+        <title>Contact Us | Yiedze Digital Solutions</title>
+        <meta name="description" content="Get in touch with Yiedze Digital Solutions for all your IT service needs. Contact us today to discuss your project or request a quote." />
       </Helmet>
       
       <div className="min-h-screen bg-background">

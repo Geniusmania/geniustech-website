@@ -13,7 +13,7 @@ const Footer = () => {
             <Link to="/" className="inline-block mb-6">
               <span className="text-2xl font-display font-bold flex items-center">
                 <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                  GeniusTech
+                  Yiedze Digital
                 </span>
                 <span className="text-foreground ml-1">Solutions</span>
               </span>
@@ -110,7 +110,7 @@ const Footer = () => {
         
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-foreground/70 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} GeniusTech Solutions. All rights reserved.
+            &copy; {currentYear} Yiedze Digital Solutions. All rights reserved.
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 text-sm text-foreground/70">

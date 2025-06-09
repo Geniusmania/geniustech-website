@@ -21,8 +21,8 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>GeniusTech Solutions | IT Freelance Agency</title>
-        <meta name="description" content="GeniusTech Solutions is a premier IT freelance agency specializing in web development, mobile apps, and IT consulting. Transform your business with our innovative solutions." />
+        <title>Yiedze Digital Solutions | IT Freelance Agency</title>
+        <meta name="description" content="Yiedze Digital Solutions is a premier IT freelance agency specializing in web development, mobile apps, and IT consulting. Transform your business with our innovative solutions." />
       </Helmet>
       
       <div className="min-h-screen bg-background animate-fade-in animate-once">

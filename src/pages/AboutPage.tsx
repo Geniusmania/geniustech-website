@@ -34,8 +34,8 @@ const AboutPage = () => {
   return (
     <>
       <Helmet>
-        <title>About Us | GeniusTech Solutions</title>
-        <meta name="description" content="Learn about GeniusTech Solutions, our mission, values, and the dedicated team behind our innovative IT solutions and services." />
+        <title>About Us | Yiedze Digital Solutions</title>
+        <meta name="description" content="Learn about Yiedze Digital Solutions, our mission, values, and the dedicated team behind our innovative IT solutions and services." />
       </Helmet>
       
       <div className="min-h-screen bg-background">
@@ -44,7 +44,7 @@ const AboutPage = () => {
         <main className="pt-24">
           <section className="container mx-auto px-6 py-16">
             <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in animate-once">
-              <h1 className="mb-4 heading-gradient">About GeniusTech Solutions</h1>
+              <h1 className="mb-4 heading-gradient">About Yiedze Digital Solutions</h1>
               <p className="text-lg text-foreground/80">
                 We're a team of passionate technology experts dedicated to helping businesses thrive in the digital landscape.
               </p>
@@ -64,7 +64,7 @@ const AboutPage = () => {
                       <div className="absolute top-0 left-[-9px] w-4 h-4 rounded-full bg-primary"></div>
                       <h3 className="text-xl font-semibold mb-2">2018 - Foundation</h3>
                       <p className="text-foreground/70">
-                        GeniusTech Solutions was founded with a vision to provide innovative technology solutions to businesses of all sizes.
+                        Yiedze Digital Solutions was founded with a vision to provide innovative technology solutions to businesses of all sizes.
                       </p>
                     </div>
                     

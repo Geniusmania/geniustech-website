@@ -39,7 +39,7 @@ const About = ({ isHomepage = true }) => {
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in animate-once">
           <h2 className="mb-4 heading-gradient">About Us</h2>
           <p className="text-lg text-foreground/80">
-            GeniusTech Solutions is a team of passionate IT professionals dedicated to helping businesses thrive in the digital landscape.
+            Yiedze Digital Solutions is a team of passionate IT professionals dedicated to helping businesses thrive in the digital landscape.
           </p>
         </div>
       )}
@@ -96,7 +96,7 @@ const About = ({ isHomepage = true }) => {
           </h3>
           
           <p className="text-foreground/80 mb-6">
-            Founded in 2018, GeniusTech Solutions has been at the forefront of digital innovation, 
+            Founded in 2018, Yiedze Digital Solutions has been at the forefront of digital innovation, 
             helping businesses of all sizes harness the power of technology to grow and succeed.
           </p>
           
